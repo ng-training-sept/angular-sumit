@@ -8,6 +8,7 @@
       </mat-card-header>
       <img mat-card-image [src]="card.imageUrl" alt="card">
       <mat-card-content>
+        <button mat-button (click)="goToItemDetails(card)">Details</button>
       </mat-card-content>
     </mat-card>
   </div>

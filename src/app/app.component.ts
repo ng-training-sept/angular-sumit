@@ -11,6 +11,8 @@ import { Card2Component } from './components/card2/card2.component';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './components/header/header.component';
 import { Card3Component } from './components/card3/card3.component';
+import { SportsComponent } from './forms/sports/sports.component';
+import { Router, RouterModule, RouterOutlet, RouterState } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +29,11 @@ import { Card3Component } from './components/card3/card3.component';
     Card2Component,
     MatFormFieldModule,
     HeaderComponent,
-    Card3Component
+    Card3Component,
+    SportsComponent,
+    RouterModule,
+    RouterOutlet,
+    
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
