@@ -1,0 +1,17 @@
+<p>table works!</p>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Address</th>
+    <th>Age</th>
+  </tr>
+
+  <ng-container *ngFor="let user of userData">
+    <tr *ngIf="user.age > 20">
+      <td>{{ user.username }}</td>
+      <td>{{ user.address }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </ng-container>
+</table>

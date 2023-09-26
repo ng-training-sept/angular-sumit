@@ -1,0 +1,152 @@
+<p>card works!</p>
+
+<!-- 
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <ng-template [ngIf]="likeCount">
+        <mat-card-subtitle>{{likeCount}} Likes</mat-card-subtitle>
+      </ng-template>
+      <mat-card-subtitle *ngIf="likeCount" > {{ likeCount }} Likes Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz
+        breeds of dog from Japan. A small, agile dog that copes very well with
+        mountainous terrain, the Shiba Inu was originally bred for hunting.
+      </p>
+      
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">LIKE</button>
+      <button mat-button [disabled]="isShareDisabled" >SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div> -->
+
+<!-- <div class="card-container">
+    <mat-card class="card" *ngFor="let cardTitle of titles">
+      <mat-card-header>
+        <mat-card-title>{{cardTitle}}</mat-card-title>
+        ...
+      </mat-card-header>
+      ...
+    </mat-card>
+  </div>
+
+ <p [ngClass]="isSpecial ? 'special' : ''">I am {{'running'}} on port {{port}}</p> -->
+
+<!-- 
+ <mat-card appSpecial class="card">
+  <mat-card-header>
+    <mat-card-title>{{title}}</mat-card-title>
+
+    <mat-card-subtitle>{{ likeCount }} Likes</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="imageUrl" alt="shiba" />
+  <mat-card-content>
+    <p>I am {{ "running" }} on port {{ port }}</p>
+    <p [style.fontSize]="size">
+      Server with Id {{ server.id }} is {{ server.status }}
+    </p>
+    <p [style]="style">Server status from method: {{ getServerStatus() }}</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title" />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">
+      LIKE
+    </button>
+    <button mat-button [disabled]="isShareDisabled">SHARE</button>
+  </mat-card-actions>
+</mat-card> -->
+
+
+<!-- <mat-card appSpecial class="card">
+  <mat-card-header>
+    <mat-card-title appSpecial>{{ title }}</mat-card-title>
+
+    <mat-card-subtitle>{{ likeCount }} Likes</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="imageUrl" alt="shiba" />
+  <mat-card-content>
+    <p>I am {{ "running" }} on port {{ port }}</p>
+    <p [style.fontSize]="size">
+      Server with Id {{ server.id }} is {{ server.status }}
+    </p>
+    <p [style]="style">Server status from method: {{ getServerStatus() }}</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title" />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">
+      LIKE
+    </button>
+    <button mat-button [disabled]="isShareDisabled">SHARE</button>
+  </mat-card-actions>
+</mat-card> -->
+
+<!-- <h2 Special>I am deep pink!</h2> -->
+
+<mat-card appSpecial class="card">
+  <mat-card-header>
+    <!-- <mat-card-title>{{title}}</mat-card-title> -->
+    <mat-card-title appSpecial>{{ title | uppercase | reverse}}</mat-card-title>
+
+    <mat-card-subtitle>{{ likeCount }} Likes</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="imageUrl" alt="shiba" />
+  <mat-card-content>
+    <p>I am {{ "running" }} on port {{ port }}</p>
+    <p [style.fontSize]="size">
+      Server with Id {{ server.id }} is {{ server.status }}
+    </p>
+    <p [style]="style">Server status from method: {{ getServerStatus() }}</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title" />
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">
+      LIKE
+    </button>
+    <button mat-button [disabled]="isShareDisabled">SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{title | uppercase | reverse}}</mat-card-title>
+    <mat-card-subtitle>{{likeCount}} Likes</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="imageUrl" alt="shiba">
+  <mat-card-content>
+    <p>I am {{'running'}} on port {{port}}</p>
+    <p>The hero's birthday is {{ birthday | date:"MM/dd/yy" }} </p>
+    <p>Server: {{server | impureDemo }}</p>
+    <p [style.fontSize]="size">Server with Id {{server.id}} is {{server.status}}</p>
+    <!-- <p [style]="style">Server status from method: {{getServerStatus()}}</p> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="title">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">LIKE</button>
+    <button mat-button [disabled]="isShareDisabled">SHARE</button>
+    <button mat-button (click)="toggleStatus()">Change Status</button>
+  </mat-card-actions>
+</mat-card>
