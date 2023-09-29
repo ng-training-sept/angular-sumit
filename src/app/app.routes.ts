@@ -5,6 +5,7 @@ import { CardItemComponent } from "./components/card3/card-item/card-item.compon
 import { GroceryComponent } from "./forms/grocery/grocery.component";
 import { HomeComponent } from "./forms/home/home.component";
 import { PageNotFoundComponent } from "./forms/page-not-found/page-not-found.component";
+import { authGuard } from "./auth/auth.constants";
 
 export const routes: Routes = [
     // { path: '', redirectTo: 'sports', pathMatch: 'full' },
@@ -20,8 +21,22 @@ export const routes: Routes = [
 
     { path: '', loadComponent: () => import('./forms/home/home.component').then(m => m.HomeComponent) },
 
-    { path: 'sports', loadChildren: () => import('./forms/sports/sports.routes').then(m => m.routes) },
-    { path: 'grocery', loadChildren: () => import('./forms/grocery/grocery.routes').then(m => m.routes) },
+    // { path: 'sports', loadChildren: () => import('./forms/sports/sports.routes').then(m => m.routes) },
+    // { path: 'grocery', loadChildren: () => import('./forms/grocery/grocery.routes').then(m => m.routes) },
+
+    {
+      path: 'sports',
+      canActivate: [authGuard],
+      loadChildren: () => import('./forms/sports/sports.routes').then(m => m.routes)
+    },
+
+    {
+      path: 'grocery',
+      canActivate: [authGuard],
+      loadChildren: () => import('./forms/grocery/grocery.routes').then(m => m.routes)
+    },
 
     { path: '**', component: PageNotFoundComponent }
+
+    
 ];

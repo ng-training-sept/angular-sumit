@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Card3Component } from 'src/app/components/card3/card3.component';
 import { RouterModule } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Card } from 'src/app/components/card3/card3.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-grocery',
@@ -15,6 +16,9 @@ import { Card } from 'src/app/components/card3/card3.model';
 export class GroceryComponent implements OnInit {
 
   groceryCards: Card[] = [];
+
+  private readonly authService = inject(AuthService);
+
 
   ngOnInit(): void {
       this.groceryCards = [

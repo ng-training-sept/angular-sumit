@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card3Component } from 'src/app/components/card3/card3.component';
 import { Card } from 'src/app/components/card3/card3.model';
 import { RouterModule } from '@angular/router';
-
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-sports',
@@ -16,7 +16,11 @@ export class SportsComponent implements OnInit {
 
   sportCards: Card[] = [];
 
+  private readonly authService = inject(AuthService);
+  // private readonly logger = inject(LOGGER);
+
   ngOnInit(): void {
+    // this.logger.log();
       this.sportCards = [
           {
               id: '1',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from './components/card/card.component';
 import { MatCardModule } from '@angular/material/card';
@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { Card3Component } from './components/card3/card3.component';
 import { SportsComponent } from './forms/sports/sports.component';
 import { Router, RouterModule, RouterOutlet, RouterState } from '@angular/router';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +38,8 @@ import { Router, RouterModule, RouterOutlet, RouterState } from '@angular/router
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  // providers: [AuthService],
+
 })
 export class AppComponent {
   title = 'ng';
@@ -57,5 +60,9 @@ export class AppComponent {
     let index = this.cardsTitle.indexOf(title);
     console.log(this.cardsTitle.splice(index, 1));
   }
+
+  // ------
+
+  private readonly authService = inject(AuthService);
 
 }
