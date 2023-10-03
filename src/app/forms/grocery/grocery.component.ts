@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { Component, OnInit, inject } from '@angular/core';
 import { Card } from 'src/app/components/card/card.model';
 import { AuthService } from 'src/app/auth/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environment';
 
 @Component({
   selector: 'app-grocery',
@@ -18,24 +20,11 @@ export class GroceryComponent implements OnInit {
   groceryCards: Card[] = [];
 
   private readonly authService = inject(AuthService);
-
+  private readonly http = inject(HttpClient)
 
   ngOnInit(): void {
-      this.groceryCards = [
-          {
-              id: '1',
-              name: 'Apple',
-              price: 300,
-              imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg',
-              description: 'Apple description'
-          },
-          {
-              id: '2',
-              name: 'Orange Boot',
-              price: 450,
-              imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Orange_Sliced_White_Background.jpg',
-              description: 'Orange description'
-          }
-      ];
+    this.http
+    .get<Card[]>(`${environment.baseUrl}/grocery`)
+    .subscribe(grocery => this.groceryCards = grocery);
   }
 }
