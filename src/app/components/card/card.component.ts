@@ -38,6 +38,7 @@ export class CardComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result?.data) {
         // emit update event and call service from parent to update card
+        
       }
     });
   }

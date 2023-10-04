@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { Card } from 'src/app/components/card/card.model';
 import { RouterModule } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
+// import { AuthService } from 'src/app/auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'environment';
 
@@ -18,7 +18,7 @@ export class SportsComponent implements OnInit {
 
   sportCards: Card[] = [];
 
-  private readonly authService = inject(AuthService);
+  // private readonly authService = inject(AuthService);
   private readonly http = inject(HttpClient);
 
   // private readonly logger = inject(LOGGER);

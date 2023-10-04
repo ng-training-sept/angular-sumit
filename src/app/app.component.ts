@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { SportsComponent } from './forms/sports/sports.component';
 import { Router, RouterModule, RouterOutlet, RouterState } from '@angular/router';
-import { AuthService } from './auth/auth.service';
+// import { AuthService } from './auth/auth.service';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 @Component({
@@ -39,6 +39,6 @@ export class AppComponent {
   
   // ------
 
-  private readonly authService = inject(AuthService);
+  // private readonly authService = inject(AuthService);
 
 }
