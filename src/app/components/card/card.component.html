@@ -8,7 +8,8 @@
       </mat-card-header>
       <img mat-card-image [src]="card.imageUrl" alt="card">
       <mat-card-content>
-        <button mat-button (click)="goToItemDetails(card)">Details</button>
+        <!-- <button mat-button (click)="goToItemDetails(card)">Details</button> -->
+        {{ card.description }}
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" (click)="openItemDialog(card)">Update</button>
