@@ -3,21 +3,21 @@
     {
       "name": "Football",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Football_Pallo_valmiina-cropped.jpg",
-      "price": 1500,
+      "price": "1100",
       "description": "Football description updated",
       "id": "c8ebd2e7-c846-4e11-b668-dc2e93d89b1f"
     },
     {
-      "name": "Football Boot",
+      "name": "Football boots",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/AdidasEtruscoBoot.jpg/230px-AdidasEtruscoBoot.jpg",
-      "price": 6000,
+      "price": "600",
       "description": "Football description",
       "id": "7f6f5c1a-5822-4a03-af9e-2fcb9f58e7f4"
     },
     {
       "name": "Basketball",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Basketballs_ondisplay2_lithuania.jpg",
-      "price": "220",
+      "price": "200",
       "description": "Sport2\nPrice updated!",
       "id": "jyQ59Oq"
     },

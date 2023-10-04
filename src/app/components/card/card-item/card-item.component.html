@@ -10,7 +10,7 @@
       <p>{{data.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button color="primary">Update</button>
+      <button mat-button color="primary" (click)="openItemDialog(data)">Update</button>
       <button mat-button color="warn">Delete</button>
     </mat-card-actions>
   </mat-card>
