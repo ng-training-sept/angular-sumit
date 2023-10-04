@@ -27,13 +27,6 @@
       "price": "240",
       "description": "A baseball",
       "id": "obL7AgY"
-    },
-    {
-      "name": "Cricket",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/GandM_Purist-Grace_match_cricket_balls.jpg",
-      "price": "100",
-      "description": "Cricket ball",
-      "id": "N7XZx8f"
     }
   ],
   "grocery": [
@@ -60,7 +53,7 @@
     },
     {
       "name": "Pear",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Pear_fruits.jpg",
       "price": "330",
       "description": "A pear fruit",
       "id": "yXaCFTM"

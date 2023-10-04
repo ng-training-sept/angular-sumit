@@ -43,18 +43,22 @@ export class HeaderComponent implements OnInit{
 
   addNew(): void {
     const dialogRef = this.dialog.open(ItemSaveUpdateComponent);
+    this.subdirectory = this.router.url.split('/')[1]
+
     dialogRef.afterClosed().subscribe(result => {
       if (result?.data) {
-          console.log(result.data)
-          this.subdirectory = this.router.url
+          // console.log(result.data)
+          // this.subdirectory = this.router.url
+          // console.log(this.subdirectory);
 
-          console.log(this.subdirectory);
         // emit update event and call service from parent to update card
+
+      
         // this.http.post<Card>(((environment.baseUrl)+(this.subdirectory)) , result.data).subscribe();
         // this.http.post<Card>(`${environment.baseUrl}/sports`, result.data).subscribe(card => console.log(card));
-        this.http.post<Card>(`${environment.baseUrl}${this.subdirectory}`, result.data).subscribe();
-
-
+        console.log(`${environment.baseUrl}/${this.subdirectory}`)
+  
+        this.http.post<Card>(`${environment.baseUrl}/${this.subdirectory}`, result.data).subscribe();
       }
     });
   }

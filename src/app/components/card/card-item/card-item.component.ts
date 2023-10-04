@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Card } from '../card.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ItemSaveUpdateComponent } from '../../item-save-update/item-save-update.component';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environment';
 
 @Component({
   selector: 'app-card-item',
@@ -25,6 +27,9 @@ export class CardItemComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly dialog = inject(MatDialog);
+  private readonly http = inject(HttpClient);
+  private subdirectory = '';
+  private cardItem = '';
 
 
   ngOnInit(): void {
@@ -33,6 +38,9 @@ export class CardItemComponent implements OnInit {
       this.id = id;
     }
    this.data = history.state?.data;
+   this.subdirectory = this.router.url.split('/')[1]
+   this.cardItem = this.router.url.split('/')[3]
+
   }
 
   openItemDialog(data: Card): void {
@@ -45,5 +53,12 @@ export class CardItemComponent implements OnInit {
         
       }
     });
+  }
+
+  deleteItem(): void{
+    // console.log(this.router.url)
+    // console.log(this.cardItem)
+    // console.log(this.router.url.split('/'))
+    this.http.delete<Card>(`${environment.baseUrl}/${this.subdirectory}/${this.cardItem}`).subscribe();
   }
 }

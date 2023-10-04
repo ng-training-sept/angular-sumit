@@ -27,6 +27,7 @@ export class ItemSaveUpdateComponent implements OnInit {
     this.initItemForm();
     this.patchItemForm();
     this.subdirectory = this.router.url.split('/')[1]
+
   }
 
   // initItemForm(): void {
@@ -68,7 +69,10 @@ export class ItemSaveUpdateComponent implements OnInit {
 
   onSaveOrUpdate(): void {
 
-    this.http.put<Card>(`${environment.baseUrl}/${this.subdirectory}/${this.dialogData.id}`, this.itemForm.value).subscribe();
+    if(this.dialogData)
+    {
+      this.http.put<Card>(`${environment.baseUrl}/${this.subdirectory}/${this.dialogData.id}`, this.itemForm.value).subscribe();
+    }
     
     this.dialogRef.close({ 
       data: this.itemForm.value
