@@ -77,7 +77,6 @@ export class ItemSaveUpdateComponent implements OnInit {
     this.dialogRef.close({ 
       data: this.itemForm.value
      });
-    //  console.log("Card Updated")
   }
 
 

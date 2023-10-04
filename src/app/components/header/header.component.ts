@@ -47,17 +47,7 @@ export class HeaderComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result => {
       if (result?.data) {
-          // console.log(result.data)
-          // this.subdirectory = this.router.url
-          // console.log(this.subdirectory);
-
-        // emit update event and call service from parent to update card
-
-      
-        // this.http.post<Card>(((environment.baseUrl)+(this.subdirectory)) , result.data).subscribe();
-        // this.http.post<Card>(`${environment.baseUrl}/sports`, result.data).subscribe(card => console.log(card));
-        console.log(`${environment.baseUrl}/${this.subdirectory}`)
-  
+        // emit update event and call service from parent to update card  
         this.http.post<Card>(`${environment.baseUrl}/${this.subdirectory}`, result.data).subscribe();
       }
     });

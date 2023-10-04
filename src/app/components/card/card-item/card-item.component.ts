@@ -56,9 +56,6 @@ export class CardItemComponent implements OnInit {
   }
 
   deleteItem(): void{
-    // console.log(this.router.url)
-    // console.log(this.cardItem)
-    // console.log(this.router.url.split('/'))
     this.http.delete<Card>(`${environment.baseUrl}/${this.subdirectory}/${this.cardItem}`).subscribe();
   }
 }
