@@ -27,10 +27,10 @@ export class HeaderComponent implements OnInit{
   private readonly authService = inject(AuthService);
   private readonly dialog = inject(MatDialog);
   private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
   private subdirectory = '';
 
-
-  constructor(private router: Router){
+  constructor(){
   }
 
   ngOnInit(): void {
@@ -50,8 +50,9 @@ export class HeaderComponent implements OnInit{
 
           console.log(this.subdirectory);
         // emit update event and call service from parent to update card
-        this.http.post<Card>(((environment.baseUrl)+(this.subdirectory)) , result.data).subscribe();
+        // this.http.post<Card>(((environment.baseUrl)+(this.subdirectory)) , result.data).subscribe();
         // this.http.post<Card>(`${environment.baseUrl}/sports`, result.data).subscribe(card => console.log(card));
+        this.http.post<Card>(`${environment.baseUrl}${this.subdirectory}`, result.data).subscribe();
 
 
       }

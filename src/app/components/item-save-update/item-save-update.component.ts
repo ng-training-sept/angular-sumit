@@ -4,7 +4,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Card } from '../card/card.model';
-
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-save-update',
@@ -16,9 +18,15 @@ import { Card } from '../card/card.model';
 export class ItemSaveUpdateComponent implements OnInit {
   itemForm!: FormGroup;
 
+  private readonly http = inject(HttpClient);
+  private readonly router = inject(Router);
+
+  private subdirectory = '';
+
   ngOnInit(): void {
     this.initItemForm();
     this.patchItemForm();
+    this.subdirectory = this.router.url
   }
 
   // initItemForm(): void {
@@ -59,7 +67,13 @@ export class ItemSaveUpdateComponent implements OnInit {
   }
 
   onSaveOrUpdate(): void {
-    this.dialogRef.close({ data: this.itemForm.value });
+
+    this.http.put<Card>(`${environment.baseUrl}${this.subdirectory}/${this.dialogData.id}`, this.itemForm.value).subscribe();
+    
+    this.dialogRef.close({ 
+      data: this.itemForm.value
+     });
+    //  console.log("Card Updated")
   }
 
 
